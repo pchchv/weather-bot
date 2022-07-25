@@ -23,10 +23,11 @@ async def send_welcome(message: types.Message):
                         "Send me the name of the city and I will show you the time and weather in it")
 
 
-async def get_data():
-    # TODO: Get the city from the user, call the req(city) function, format the data and send it to the user
-    city = 'Moscow'
-    print(req(city))
+@dp.message_handler()
+async def get_data(message: types.Message):
+    # TODO: Format the data before sending it to the user
+    city = message.text
+    await message.reply(req(city))
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
