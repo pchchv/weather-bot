@@ -1,8 +1,7 @@
 import logging
 from aiogram import Bot, Dispatcher, types, executor
-from main import req
 
-with open('token.txt', 'r') as t:
+with open('token.txt', 'r', encoding=str) as t:
     BOT_TOKEN = t.read()
 t.close()
 
@@ -25,6 +24,9 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler()
 async def get_data(message: types.Message):
+    """
+    This handler will be called when the user sends any message (not a command). 
+    """
     # TODO: Format the data before sending it to the user
     city = message.text
     await message.reply(req(city))
