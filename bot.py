@@ -27,7 +27,7 @@ async def send_welcome(message: types.Message):
 @dp.message_handler()
 async def get_data(message: types.Message):
     """
-    This handler will be called when the user sends any message (not a command) 
+    This handler will be called when the user sends any message (not a command)
     """
     # TODO: Add request error handling
     #     Format the data before sending it to the user
