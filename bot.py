@@ -1,4 +1,5 @@
 import logging
+import requests
 from aiogram import Bot, Dispatcher, types, executor
 
 with open('token.txt', 'r', encoding=str) as t:
@@ -30,7 +31,9 @@ async def get_data(message: types.Message):
     """
     # TODO: Format the data before sending it to the user
     city = message.text
-    await message.reply(req(city))
+    url = 'http://localhost:8080/stats?city=' + city
+    res = requests.get(url)
+    await message.reply(res)
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
