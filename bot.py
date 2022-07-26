@@ -29,11 +29,13 @@ async def get_data(message: types.Message):
     """
     This handler will be called when the user sends any message (not a command) 
     """
-    # TODO: Format the data before sending it to the user
+    # TODO: Add request error handling
+    #     Format the data before sending it to the user
     city = message.text
     url = 'http://localhost:8080/stats?city=' + city
     res = requests.get(url)
     await message.reply(res)
+
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
