@@ -2,5 +2,5 @@
 # Bot works with this API service: https://github.com/pchchv/weather
 ## Running the bot
 ```
-puthon3 bot.py
+python3 bot.py
 ```
